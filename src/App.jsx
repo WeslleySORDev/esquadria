@@ -36,61 +36,61 @@ function App() {
   };
   const submitForm = (event) => {
     event.preventDefault();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Por favor, insira um e-mail válido.");
+      return;
+    }
     console.log(service, name, email, telefone);
   };
   return (
     <div className={`${openMenu ? "max-h-screen overflow-y-hidden" : ""}`}>
-      <Header openMenu={openMenu}  handleMenu={handleMenu} />
+      <Header openMenu={openMenu} handleMenu={handleMenu} />
       <div className="overflow-x-hidden">
         <main className="py-12">
           <section className="px-4">
-            <p className="text-sm text-[#4d4d4d]">
-              <span>Mestres em tudo que fazemos</span>
-            </p>
-            <p className="text-3xl font-bold uppercase text-[#09253b]">
-              <span>Maestri</span>
-            </p>
-            <div className="mt-4 space-y-2">
-              <p className="text-[10px] leading-[12px]">
-                <span>
-                  Somos uma empresa dedica em respeitar nossos clientes,
-                  fornecedores e colaboradores.
+            <div className="flex flex-col space-y-2 md:h-full md:flex-row md:px-72">
+              <span className="flex-1 text-3xl font-bold uppercase text-[#09253b] md:mt-40 md:text-7xl">
+                Maestri
+              </span>
+              <div className="flex flex-col gap-2 md:max-w-96 md:gap-4">
+                <span className="mt-4 text-[10px] leading-[12px] md:text-base">
+                  A Maestri esquadrias é uma empresa de Esquadrias de alumínio
+                  que visa a excelência em seus produtos, desde a criação até a
+                  entrega final ao cliente. Nosso objetivo é garantir a
+                  satisfação de nossos clientes com os menores prazos do
+                  mercado, mantendo nossa qualidade e seguindo todas as normas
+                  existentes para a execução de nossos serviços.
                 </span>
-              </p>
-              <p className="text-xs font-bold">
-                <span>Qualidade e Profissionalismo</span>
-              </p>
-              <p className="text-[10px] leading-[12px]">
-                <span>
+                <span className="text-xs font-bold text-[#09253b] md:text-2xl">
+                  Qualidade e Profissionalismo
+                </span>
+                <span className="text-[10px] leading-[12px] md:text-base">
                   Qualidade, profissionalismo e comprometimento são nossas
                   palavras chaves. Mais do que apresentar as mais diversas
                   opções, apresentamos soluções.
                 </span>
-              </p>
-              <p className="text-[10px] leading-[12px]">
-                <span>
+                <span className="text-[10px] leading-[12px] md:text-base">
                   Conte conosco em todas as etapas: desde o projeto até a
                   instalação, prestamos um atendimento personalizado que vai
                   muito além da oferta de peças de qualidade.
                 </span>
-              </p>
-              <p className="text-[10px] leading-[12px]">
-                <span>
+                <span className="text-[10px] leading-[12px] md:text-base">
                   Atuando no mercado de esquadrias há mais de 10 anos, a Master
                   faz produtos para satisfazer a sua vontade.
                 </span>
-              </p>
+              </div>
             </div>
           </section>
-          <section className="scroll-mt-28" id="principles">
-            <div className="relative my-12 flex h-28 items-center justify-center py-16 text-[#c7c7c7]">
+          <section id="principios" className="scroll-mt-28">
+            <div className="relative my-12 flex h-28 items-center justify-center py-16 text-[#c7c7c7] md:py-28">
               <h2>
-                <p className="text-xs">Nossos</p>
-                <p className="text-2xl font-medium">PRINCÍPIOS</p>
+                <p className="text-xs md:text-base">Nossos</p>
+                <p className="text-2xl font-medium md:text-4xl">PRINCÍPIOS</p>
               </h2>
-              <div className="absolute left-0 top-0 -z-10 h-full w-[120%] -translate-x-3 rotate-[4deg] bg-[#09253b]"></div>
+              <div className="absolute left-0 top-0 -z-10 h-full w-[120%] -translate-x-3 rotate-[4deg] bg-[#09253b] md:rotate-[2deg]"></div>
             </div>
-            <div className="mt-8 flex flex-col gap-8">
+            <div className="my-8 flex flex-col gap-8 md:my-24 md:flex-row">
               <Principio
                 src={sustentabilidade}
                 alt="Sustentabilidade SVG"
@@ -123,15 +123,17 @@ function App() {
               />
             </div>
           </section>
-          <section id="our-job" className="my-12 scroll-mt-28">
-            <div className="relative flex flex-col items-center justify-center space-y-4 px-8 py-16 text-[#c7c7c7]">
-              <h2 className="text-2xl font-medium">Nosso Trabalho </h2>
-              <p className="text-center text-[10px] leading-[12px]">
+          <section id="nosso-trabalho" className="my-12 scroll-mt-28">
+            <div className="relative flex flex-col items-center justify-center space-y-4 px-8 py-16 text-[#c7c7c7] md:py-28">
+              <h2 className="text-2xl font-medium md:text-4xl">
+                Nosso Trabalho{" "}
+              </h2>
+              <p className="text-center text-[10px] leading-[12px] md:text-base">
                 Conheça alguns dos nossos trabalhos em detalhes.
               </p>
-              <div className="absolute -top-4 left-0 -z-10 h-full w-[120%] -translate-x-3 rotate-[4deg] bg-[#09253b]"></div>
+              <div className="absolute -top-4 left-0 -z-10 h-full w-[120%] -translate-x-3 rotate-[4deg] bg-[#09253b] md:rotate-[2deg]"></div>
             </div>
-            <div className="mx-16 mt-8 flex flex-col gap-8">
+            <div className="mx-16 my-8 flex flex-col gap-8 md:my-24">
               <Trabalho
                 title="Portões"
                 src={portoes}
@@ -161,13 +163,13 @@ function App() {
               />
             </div>
           </section>
-          <section id="talk-to-us" className="translate-y-16 scroll-mt-28">
-            <div className="relative flex flex-col space-y-4 px-8 py-16 text-[#c7c7c7]">
+          <section id="fale-conosco" className="translate-y-16 scroll-mt-28">
+            <div className="relative flex flex-col space-y-4 px-8 py-16 text-[#c7c7c7] md:flex-row md:justify-around md:py-24">
               <div className="flex flex-col">
-                <p className="text-[10px] leading-[12px]">
+                <p className="text-[10px] leading-[12px] md:text-base">
                   Peça seu orçamento!{" "}
                 </p>
-                <h2 className="text-2xl font-medium uppercase">
+                <h2 className="text-2xl font-medium uppercase md:text-4xl">
                   fale com nossos especialistas
                 </h2>
               </div>
@@ -176,54 +178,60 @@ function App() {
                 onSubmit={(event) => submitForm(event)}
                 action="submit"
               >
-                <div className="flex flex-col">
-                  <label htmlFor="form-service">
-                    Qual serviço gostaria de orçamento?
-                  </label>
-                  <select
-                    className="px-2 py-1"
-                    name="form-service"
-                    onChange={(event) => setService(event.currentTarget.value)}
-                    defaultValue={servicos[0]}
-                  >
-                    {servicos.map((servico) => (
-                      <option key={servico} value={servico}>
-                        {servico}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="flex flex-col">
-                  <label htmlFor="form-name">Nome</label>
-                  <input
-                    className="px-2 py-1"
-                    required
-                    value={name}
-                    onChange={(event) => setName(event.currentTarget.value)}
-                    type="text"
-                    name="form-name"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <label htmlFor="form-email">Email</label>
-                  <input
-                    className="px-2 py-1"
-                    required
-                    value={email}
-                    onChange={(event) => setEmail(event.currentTarget.value)}
-                    type="text"
-                    name="form-email"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <label htmlFor="form-phone">Telefone</label>
-                  <input
-                    className="px-2 py-1"
-                    value={telefone}
-                    onChange={(event) => setTelefone(event.currentTarget.value)}
-                    type="text"
-                    name="form-phone"
-                  />
+                <div className="flex flex-col gap-2 md:grid md:grid-cols-2 md:gap-4">
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="form-service">
+                      Qual serviço gostaria de orçamento?
+                    </label>
+                    <select
+                      className="px-2 py-1 text-[#09253b] md:px-4 md:py-2"
+                      name="form-service"
+                      onChange={(event) =>
+                        setService(event.currentTarget.value)
+                      }
+                      defaultValue={servicos[0]}
+                    >
+                      {servicos.map((servico) => (
+                        <option key={servico} value={servico}>
+                          {servico}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="form-name">Nome</label>
+                    <input
+                      className="px-2 py-1 text-[#09253b] md:px-4 md:py-2"
+                      required
+                      value={name}
+                      onChange={(event) => setName(event.currentTarget.value)}
+                      type="text"
+                      name="form-name"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="form-email">Email</label>
+                    <input
+                      className="px-2 py-1 text-[#09253b] md:px-4 md:py-2"
+                      required
+                      value={email}
+                      onChange={(event) => setEmail(event.currentTarget.value)}
+                      type="text"
+                      name="form-email"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="form-phone">Telefone</label>
+                    <input
+                      className="px-2 py-1 text-[#09253b] md:px-4 md:py-2"
+                      value={telefone}
+                      onChange={(event) =>
+                        setTelefone(event.currentTarget.value)
+                      }
+                      type="text"
+                      name="form-phone"
+                    />
+                  </div>
                 </div>
                 <button
                   className="mt-4 rounded bg-white px-6 py-4 font-semibold uppercase text-[#09253b]"
@@ -236,24 +244,28 @@ function App() {
             </div>
           </section>
         </main>
-        <footer className="flex flex-col gap-4 px-8 pb-8 pt-32 text-black">
-          <div className="flex flex-col">
-            <strong className="uppercase">Horário de atentimento</strong>
-            <span>Seg - Sex: 8h ás 17h</span>
+        <footer className="flex flex-col gap-4 px-8 pb-16 pt-32 text-black md:flex-row-reverse md:justify-around">
+          <div className="flex flex-col gap-2 md:justify-center">
+            <div className="flex flex-col">
+              <strong className="uppercase">Horário de atentimento</strong>
+              <span>Seg - Sex: 8h ás 17h</span>
+            </div>
+            <div className="flex flex-col">
+              <strong className="uppercase">Área de atentimento</strong>
+              <span>Fictício</span>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <strong className="uppercase">Área de atentimento</strong>
-            <span>Fictício</span>
+          <div className="flex flex-col gap-2 md:justify-center">
+            <div className="flex flex-col">
+              <strong className="uppercase">Contato</strong>
+              <span>Telefone:(11)1 1111-1111</span>
+            </div>
+            <div className="flex flex-col">
+              <span>Av. São Bernardo do Campo, 340 </span>
+              <span>Santo André, SP | CEP 09171-615</span>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <strong className="uppercase">Contato</strong>
-            <span>Telefone:(11)1 1111-1111</span>
-          </div>
-          <div className="flex flex-col">
-            <span>Av. São Bernardo do Campo, 340 </span>
-            <span>Santo André, SP | CEP 09171-615</span>
-          </div>
-          <div className="mt-12 flex flex-col items-center justify-center gap-1 py-6">
+          <div className="mt-12 md:mt-0 flex flex-col items-center justify-center md:justify-start gap-1 py-6 md:py-0">
             <img
               className="mx-auto w-48"
               src="/assets/logo-transparent.png"
