@@ -11,30 +11,37 @@ import modernidade from "./assets/principios/modernidade.svg";
 import condutaEtica from "./assets/principios/conduta-etica.svg";
 import profissionalismo from "./assets/principios/profissionalismo.svg";
 
+import portas from "./assets/trabalhos/portas/1.jpeg";
+import portoes from "./assets/trabalhos/portas/1.jpeg";
+import ripados from "./assets/trabalhos/ripados/1.jpeg";
+import janelas from "./assets/trabalhos/portas/1.jpeg";
+import coberturas from "./assets/trabalhos/coberturas/1.jpeg";
+import fachadas from "./assets/trabalhos/fachadas/1.jpeg";
+
 const trabalhos = [
   {
     name: "Portas",
-    src: "/src/assets/trabalhos/portas/1.jpeg",
+    src: { portas },
   },
   {
     name: "Portões",
-    src: "/src/assets/trabalhos/portoes/1.jpeg",
+    src: { portoes },
   },
   {
     name: "Ripados",
-    src: "/src/assets/trabalhos/ripados/1.jpeg",
+    src: { ripados },
   },
   {
     name: "Janelas",
-    src: "/src/assets/trabalhos/janelas/1.jpeg",
+    src: { janelas },
   },
   {
     name: "Coberturas",
-    src: "/src/assets/trabalhos/coberturas/1.jpeg",
+    src: { coberturas },
   },
   {
     name: "Fachadas em ACM",
-    src: "/src/assets/trabalhos/fachadas-em-acm/1.jpeg",
+    src: { fachadas },
   },
 ];
 
@@ -145,7 +152,10 @@ function App() {
               />
             </div>
           </section>
-          <section id="nosso-trabalho" className="my-12 scroll-mt-28 md:scroll-m-[148px]">
+          <section
+            id="nosso-trabalho"
+            className="my-12 scroll-mt-28 md:scroll-m-[148px]"
+          >
             <div className="relative flex flex-col items-center justify-center space-y-4 px-8 py-16 text-[#c7c7c7] md:py-28">
               <h2 className="text-2xl font-medium md:text-4xl">
                 Nosso Trabalho{" "}
@@ -167,7 +177,10 @@ function App() {
               ))}
             </div>
           </section>
-          <section id="fale-conosco" className="translate-y-16 scroll-mt-28 md:scroll-m-32">
+          <section
+            id="fale-conosco"
+            className="translate-y-16 scroll-mt-28 md:scroll-m-32"
+          >
             <div className="relative flex flex-col space-y-4 px-8 py-16 text-[#c7c7c7] md:flex-row md:justify-around md:py-24">
               <div className="flex flex-col">
                 <p className="text-[10px] leading-[12px] md:text-base">
@@ -251,7 +264,7 @@ function App() {
         <footer className="flex flex-col gap-4 px-8 pb-16 pt-32 text-black md:flex-row-reverse md:justify-around">
           <div className="flex flex-col gap-2 md:justify-center">
             <div className="flex flex-col items-center md:items-start">
-              <strong className="uppercase">Horário de atentimento</strong>
+              <strong className="uppercase">Horário de atendimento</strong>
               <span>Seg - Sex: 8h ás 17h</span>
             </div>
             <div className="flex flex-col items-center md:items-start">
@@ -264,10 +277,6 @@ function App() {
               <strong className="uppercase">Contato</strong>
               <span>Telefone: (12) 98188-6732 / (12) 98277-1639</span>
               <span>Email: maira.maestri@gmail.com</span>
-            </div>
-            <div className="flex flex-col items-center md:items-start">
-              <span>Av. São Bernardo do Campo, 340 </span>
-              <span>Santo André, SP | CEP 09171-615</span>
             </div>
           </div>
           <div className="mt-12 flex flex-col items-center justify-center gap-1 py-6 md:mt-0 md:justify-start md:py-0">
