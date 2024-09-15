@@ -11,19 +11,33 @@ import modernidade from "./assets/principios/modernidade.svg";
 import condutaEtica from "./assets/principios/conduta-etica.svg";
 import profissionalismo from "./assets/principios/profissionalismo.svg";
 
-import portoes from "./assets/trabalhos/portoes.png";
-import armarios from "./assets/trabalhos/armarios.png";
-import coberturas from "./assets/trabalhos/coberturas.png";
-import janelas from "./assets/trabalhos/janelas.png";
-import corrimaos from "./assets/trabalhos/corrimaos.png";
-import telas from "./assets/trabalhos/telas.png";
-import vidros from "./assets/trabalhos/vidros.png";
-import portas from "./assets/trabalhos/portas.png";
-
 const phone = "5524998547770";
 const texto = "Olá gostaria de saber mais sobre seus serviços!";
 
 const servicos = ["Esquadria de PVC", "Esquadria de Aluminio"];
+
+const trabalhos = [
+  {
+    name: "Portas",
+    src: "/src/assets/trabalhos/portas/1.jpeg",
+  },
+  {
+    name: "Ripados",
+    src: "/src/assets/trabalhos/ripados/1.jpeg",
+  },
+  {
+    name: "Janelas",
+    src: "/src/assets/trabalhos/janelas/1.jpeg",
+  },
+  {
+    name: "Coberturas",
+    src: "/src/assets/trabalhos/coberturas/1.jpeg",
+  },
+  {
+    name: "Fachadas em ACM",
+    src: "/src/assets/trabalhos/fachadas-em-acm/1.jpeg",
+  },
+];
 
 function App() {
   const [service, setService] = useState("");
@@ -55,12 +69,12 @@ function App() {
               </span>
               <div className="flex flex-col gap-2 md:max-w-96 md:gap-4">
                 <span className="mt-4 text-[10px] leading-[12px] md:text-base">
-                  A Maestri esquadrias é uma empresa de Esquadrias de alumínio
-                  que visa a excelência em seus produtos, desde a criação até a
-                  entrega final ao cliente. Nosso objetivo é garantir a
-                  satisfação de nossos clientes com os menores prazos do
-                  mercado, mantendo nossa qualidade e seguindo todas as normas
-                  existentes para a execução de nossos serviços.
+                  A Maestri esquadrias é uma empresa de esquadrias de alumínio
+                  que visa a excelência em seus produtos, desde do design do
+                  projeto até a entrega final ao cliente. Nosso objetivo é
+                  garantir a satisfação de nossos clientes com os menores prazos
+                  do mercado, mantendo nossa qualidade e seguindo as normas de
+                  qualidade para a execução de nossos serviços com excelência.
                 </span>
                 <span className="text-xs font-bold text-[#09253b] md:text-2xl">
                   Qualidade e Profissionalismo
@@ -133,34 +147,15 @@ function App() {
               </p>
               <div className="absolute -top-4 left-0 -z-10 h-full w-[120%] -translate-x-3 rotate-[4deg] bg-[#09253b] md:rotate-[2deg]"></div>
             </div>
-            <div className="mx-16 my-8 flex flex-col gap-8 md:my-24">
-              <Trabalho
-                title="Portões"
-                src={portoes}
-                alt="portoes Image"
-                left
-              />
-              <Trabalho title="Telas" src={telas} alt="telas Image" />
-              <Trabalho title="Portas" src={portas} alt="portas Image" left />
-              <Trabalho
-                title="Corrimaos"
-                src={corrimaos}
-                alt="corrimaos Image"
-              />
-              <Trabalho
-                title="Coberturas"
-                src={coberturas}
-                alt="coberturas Image"
-                left
-              />
-              <Trabalho title="Armarios" src={armarios} alt="armarios Image" />
-              <Trabalho title="Vidros" src={vidros} alt="vidros Image" left />
-              <Trabalho
-                title="Janelas"
-                src={janelas}
-                alt="janelas Image"
-                last
-              />
+            <div className="mx-auto my-8 grid max-w-[calc(128px+(256*1px))] grid-cols-1 gap-8 sm:max-w-[calc(128px+(256*2px))] sm:grid-cols-2 md:max-w-[calc(128px+(256*3px))] md:grid-cols-3">
+              {trabalhos.map((trabalho) => (
+                <Trabalho
+                  title={trabalho.name}
+                  src={trabalho.src}
+                  alt={`Imagem do trabalho: ${trabalho.name}`}
+                  left
+                />
+              ))}
             </div>
           </section>
           <section id="fale-conosco" className="translate-y-16 scroll-mt-28">
@@ -246,26 +241,26 @@ function App() {
         </main>
         <footer className="flex flex-col gap-4 px-8 pb-16 pt-32 text-black md:flex-row-reverse md:justify-around">
           <div className="flex flex-col gap-2 md:justify-center">
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center md:items-start">
               <strong className="uppercase">Horário de atentimento</strong>
               <span>Seg - Sex: 8h ás 17h</span>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center md:items-start">
               <strong className="uppercase">Área de atentimento</strong>
               <span>Fictício</span>
             </div>
           </div>
           <div className="flex flex-col gap-2 md:justify-center">
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center md:items-start">
               <strong className="uppercase">Contato</strong>
               <span>Telefone:(11)1 1111-1111</span>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center md:items-start">
               <span>Av. São Bernardo do Campo, 340 </span>
               <span>Santo André, SP | CEP 09171-615</span>
             </div>
           </div>
-          <div className="mt-12 md:mt-0 flex flex-col items-center justify-center md:justify-start gap-1 py-6 md:py-0">
+          <div className="mt-12 flex flex-col items-center justify-center gap-1 py-6 md:mt-0 md:justify-start md:py-0">
             <img
               className="mx-auto w-48"
               src="/assets/logo-transparent.png"
