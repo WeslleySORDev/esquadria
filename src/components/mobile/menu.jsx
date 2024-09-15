@@ -19,17 +19,17 @@ export function MobileMenu({ openMenu, handleMenu }) {
       </button>
       <ul className="my-auto h-full flex flex-col gap-8 items-center justify-center text-3xl">
         <li>
-          <a onClick={() => handleMenu(false)} href="#principles">
+          <a onClick={() => handleMenu(false)} href="#principios">
             Principios
           </a>
         </li>
         <li>
-          <a onClick={() => handleMenu(false)} href="#our-job">
+          <a onClick={() => handleMenu(false)} href="#nosso-trabalho">
             Nosso Trabalho
           </a>
         </li>
         <li>
-          <a onClick={() => handleMenu(false)} href="#talk-to-us">
+          <a onClick={() => handleMenu(false)} href="#fale-conosco">
             Fale Conosco
           </a>
         </li>

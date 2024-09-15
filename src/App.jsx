@@ -14,31 +14,50 @@ import profissionalismo from "./assets/principios/profissionalismo.svg";
 const trabalhos = [
   {
     name: "Portas",
-    src: "/assets/trabalhos/portas/1.jpeg",
+    images: [
+      "/assets/trabalhos/portas/1.jpeg",
+      "/assets/trabalhos/portas/2.jpeg",
+      "/assets/trabalhos/portas/3.jpeg",
+    ],
   },
   {
     name: "Portões",
-    src: "/assets/trabalhos/portoes/1.jpeg",
+    images: ["/assets/trabalhos/portoes/1.jpeg"],
   },
   {
     name: "Ripados",
-    src: "/assets/trabalhos/ripados/1.jpeg",
+    images: [
+      "/assets/trabalhos/ripados/1.jpeg",
+      "/assets/trabalhos/ripados/2.jpeg",
+    ],
   },
   {
     name: "Janelas",
-    src: "/assets/trabalhos/janelas/1.jpeg",
+    images: [
+      "/assets/trabalhos/janelas/1.jpeg",
+      "/assets/trabalhos/janelas/2.jpeg",
+      "/assets/trabalhos/janelas/3.jpeg",
+      "/assets/trabalhos/janelas/4.jpeg",
+    ],
   },
   {
     name: "Coberturas",
-    src: "/assets/trabalhos/coberturas/1.jpeg",
+    images: [
+      "/assets/trabalhos/coberturas/1.jpeg",
+      "/assets/trabalhos/coberturas/2.jpeg",
+      "/assets/trabalhos/coberturas/3.jpeg",
+    ],
   },
   {
     name: "Fachadas em ACM",
-    src: "/assets/trabalhos/fachadas/1.jpeg",
+    images: [
+      "/assets/trabalhos/fachadas/1.jpeg",
+      "/assets/trabalhos/fachadas/2.jpeg",
+    ],
   },
   {
     name: "Telas",
-    src: "/assets/trabalhos/telas/1.jpeg",
+    images: ["/assets/trabalhos/telas/1.jpeg"],
   },
 ];
 
@@ -51,6 +70,38 @@ function App() {
   const numeroWhatsApp = "5512981886732";
   const mensagemBotaoWhatsapp =
     "Olá gostaria de saber mais sobre seus serviços!";
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (images, index) => {
+    setSelectedImages(images);
+    setCurrentIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === selectedImages.length - 1 ? 0 : prevIndex + 1,
+    );
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? selectedImages.length - 1 : prevIndex - 1,
+    );
+  };
+
+  const handleBackgroundClick = (e) => {
+    // Fecha o modal se o clique for no fundo (overlay)
+    if (e.target.id === "modal-background") {
+      closeModal();
+    }
+  };
   const handleMenu = (value) => {
     setOpenMenu(value);
   };
@@ -75,10 +126,14 @@ function App() {
       <div className="overflow-x-hidden">
         <main className="py-12">
           <section className="px-4">
-            <div className="flex flex-col space-y-2 md:h-full md:flex-row md:px-72">
-              <span className="flex-1 text-3xl font-bold uppercase text-[#09253b] md:mt-40 md:text-7xl">
-                Maestri
-              </span>
+            <div className="flex flex-col space-y-8 md:h-full md:flex-row md:px-4 lg:px-16 xl:px-64">
+              <div className="flex flex-1">
+                <img
+                  className="h-[42px] w-[310px] md:mt-40"
+                  src="/assets/marca-transparent.png"
+                  alt=""
+                />
+              </div>
               <div className="flex flex-col gap-2 md:max-w-96 md:gap-4">
                 <span className="mt-4 text-[10px] leading-[12px] md:text-base">
                   A Maestri esquadrias é uma empresa de esquadrias de alumínio
@@ -92,23 +147,14 @@ function App() {
                   Qualidade e Profissionalismo
                 </span>
                 <span className="text-[10px] leading-[12px] md:text-base">
-                  Qualidade, profissionalismo e comprometimento são nossas
-                  palavras chaves. Mais do que apresentar as mais diversas
-                  opções, apresentamos soluções.
-                </span>
-                <span className="text-[10px] leading-[12px] md:text-base">
-                  Conte conosco em todas as etapas: desde o projeto até a
-                  instalação, prestamos um atendimento personalizado que vai
-                  muito além da oferta de peças de qualidade.
-                </span>
-                <span className="text-[10px] leading-[12px] md:text-base">
-                  Atuando no mercado de esquadrias há mais de 10 anos, a Master
-                  faz produtos para satisfazer a sua vontade.
+                  Trabalhamos seguindo as normas de qualidade com
+                  profissionalismo e comprometimento. Conte conosco para criar a
+                  solução ideal de forma personalizada.
                 </span>
               </div>
             </div>
           </section>
-          <section id="principios" className="scroll-mt-28 md:scroll-m-36">
+          <section id="principios" className="scroll-mt-[88px] md:scroll-m-28">
             <div className="relative my-12 flex h-28 items-center justify-center py-16 text-[#c7c7c7] md:py-28">
               <h2>
                 <p className="text-xs md:text-base">Nossos</p>
@@ -151,7 +197,7 @@ function App() {
           </section>
           <section
             id="nosso-trabalho"
-            className="my-12 scroll-mt-28 md:scroll-m-[148px]"
+            className="my-12 scroll-mt-[88px] md:scroll-m-28"
           >
             <div className="relative flex flex-col items-center justify-center space-y-4 px-8 py-16 text-[#c7c7c7] md:py-28">
               <h2 className="text-2xl font-medium md:text-4xl">
@@ -163,22 +209,27 @@ function App() {
               <div className="absolute -top-4 left-0 -z-10 h-full w-[120%] -translate-x-3 rotate-[4deg] bg-[#09253b] md:rotate-[2deg]"></div>
             </div>
             <div className="mx-auto my-8 grid max-w-[calc(128px+(256*1px))] grid-cols-1 gap-8 sm:max-w-[calc(128px+(256*2px))] sm:grid-cols-2 lg:max-w-[calc(128px+(256*3px))] lg:grid-cols-3">
-              {trabalhos.map((trabalho) => (
-                <Trabalho
-                  key={trabalho.name}
-                  title={trabalho.name}
-                  src={trabalho.src}
-                  alt={`Imagem do trabalho: ${trabalho.name}`}
-                  left
-                />
+              {trabalhos.map((trabalho, index) => (
+                <div
+                  className="cursor-pointer"
+                  onClick={() => openModal(trabalho.images, 0)}
+                >
+                  <Trabalho
+                    key={`${trabalho.name} - ${index + 1}`}
+                    title={trabalho.name}
+                    src={trabalho.images[0]}
+                    alt={`Imagem do trabalho: ${trabalho.name}`}
+                    left
+                  />
+                </div>
               ))}
             </div>
           </section>
           <section
             id="fale-conosco"
-            className="translate-y-16 scroll-mt-28 md:scroll-m-32"
+            className="translate-y-16 scroll-mt-[88px] md:scroll-m-32"
           >
-            <div className="relative flex flex-col space-y-4 px-8 py-16 text-[#c7c7c7] md:flex-row md:justify-around md:py-24">
+            <div className="relative flex flex-col space-y-4 px-8 py-16 text-[#c7c7c7] md:py-24 xl:flex-row xl:justify-around xl:py-24">
               <div className="flex flex-col">
                 <p className="text-[10px] leading-[12px] md:text-base">
                   Peça seu orçamento!{" "}
@@ -259,7 +310,7 @@ function App() {
           </section>
         </main>
         <footer className="flex flex-col">
-          <div className="flex flex-col gap-4 px-8 pb-16 pt-32 text-black md:flex-row-reverse md:justify-around">
+          <div className="mx-auto flex flex-col gap-4 px-8 pb-16 pt-32 text-black lg:mx-0 lg:flex-row-reverse lg:justify-around">
             <div className="flex flex-col gap-2 md:justify-center">
               <div className="flex flex-col items-center md:items-start">
                 <strong className="uppercase">Horário de atendimento</strong>
@@ -274,10 +325,10 @@ function App() {
               <div className="flex flex-col items-center md:items-start">
                 <strong className="uppercase">Contato</strong>
                 <span>Telefone: (12) 98188-6732 / (12) 98277-1639</span>
-                <span>Email: maira.maestri@gmail.com</span>
+                <span>Email: contato@maestriesquadrias.com</span>
               </div>
             </div>
-            <div className="mt-12 flex flex-col items-center justify-center gap-1 py-6 md:mt-0 md:justify-start md:py-0">
+            <div className="mt-12 flex flex-col items-center justify-center gap-1 py-6 lg:mt-0 lg:justify-start lg:py-0">
               <img
                 className="mx-auto w-48"
                 src="/assets/logo-transparent.png"
@@ -286,12 +337,59 @@ function App() {
               <span className="text-xs">CNPJ: 51.359.986/0001-21</span>
             </div>
           </div>
-          <a className="text-[#09253b] py-2 mx-auto hover:underline" target="__blank" href="https://www.linkedin.com/in/weslleysordev/">
+          <a
+            className="mx-auto py-2 text-[#09253b] hover:underline"
+            target="__blank"
+            href="https://www.linkedin.com/in/weslleysordev/"
+          >
             Desenvolvido por: WeslleySORDev
           </a>
         </footer>
         <MobileMenu openMenu={openMenu} handleMenu={handleMenu} />
         <WhatsAppWidget phone={numeroWhatsApp} texto={mensagemBotaoWhatsapp} />
+        {isModalOpen && (
+          <div
+            id="modal-background"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
+            onClick={handleBackgroundClick}
+          >
+            <div className="relative w-full max-w-2xl rounded-lg bg-white p-1">
+              <div className="relative">
+                <img
+                  src={selectedImages[currentIndex]}
+                  alt="carousel"
+                  className="h-[512px] w-full rounded-md object-cover"
+                />
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex justify-center gap-2">
+                  {selectedImages.map((_, index) => (
+                    <span
+                      key={index}
+                      className={`h-3 w-3 rounded-full ${
+                        index === currentIndex ? "bg-black" : "bg-gray-300"
+                      }`}
+                    ></span>
+                  ))}
+                </div>
+                {selectedImages.length > 1 && (
+                  <>
+                    <button
+                      onClick={goToPrevious}
+                      className="absolute left-0 top-1/2 -translate-y-1/2 transform rounded-r-md bg-black bg-opacity-50 px-4 py-2 text-lg font-bold text-white hover:bg-opacity-75"
+                    >
+                      &#8592;
+                    </button>
+                    <button
+                      onClick={goToNext}
+                      className="absolute right-0 top-1/2 -translate-y-1/2 transform rounded-l-md bg-black bg-opacity-50 px-4 py-2 text-lg font-bold text-white hover:bg-opacity-75"
+                    >
+                      &#8594;
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
