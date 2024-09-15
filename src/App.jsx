@@ -368,7 +368,7 @@ function App() {
             target="__blank"
             href="https://www.linkedin.com/in/weslleysordev/"
           >
-            Desenvolvido por: WeslleySORDev
+            Desenvolvido por: Weslley Ruas
           </a>
         </footer>
         <MobileMenu openMenu={openMenu} handleMenu={handleMenu} />
