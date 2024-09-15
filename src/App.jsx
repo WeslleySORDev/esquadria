@@ -45,6 +45,7 @@ const trabalhos = [
       { type: "image", src: "/assets/trabalhos/janelas/2.jpeg" },
       { type: "image", src: "/assets/trabalhos/janelas/3.jpeg" },
       { type: "image", src: "/assets/trabalhos/janelas/4.jpeg" },
+      { type: "image", src: "/assets/trabalhos/janelas/5.jpeg" },
     ],
   },
   {
@@ -134,8 +135,13 @@ function App() {
       <Header openMenu={openMenu} handleMenu={handleMenu} />
       <div className="overflow-x-hidden">
         <main className="pb-12">
-          <section className="px-4 py-28">
-            <div className="flex flex-col space-y-8 md:h-full md:flex-row md:px-4 lg:px-16">
+          <section className="relative overflow-y-hidden px-4 py-28">
+            <img
+              className="absolute inset-0 -z-10 sm:-top-[320px] lg:-top-[640px] opacity-50 blur-[1px]"
+              src="/assets/background.jpeg"
+              alt="Background"
+            />
+            <div className="flex flex-col space-y-8 md:h-full md:flex-row md:px-4 lg:px-16]">
               <span className="flex-1 text-3xl font-bold text-[#09253b] md:mt-20 md:text-5xl lg:mt-24 lg:text-7xl">
                 Maestri Esquadrias
               </span>
@@ -160,7 +166,7 @@ function App() {
             </div>
           </section>
           <section id="principios" className="scroll-mt-[88px] md:scroll-m-28">
-            <div className="relative my-12 flex h-28 items-center justify-center py-16 text-[#c7c7c7] md:py-28">
+            <div className="relative -my-2 flex h-28 items-center justify-center py-16 text-[#c7c7c7] md:py-28">
               <h2>
                 <p className="text-xs md:text-base">Nossos</p>
                 <p className="text-2xl font-medium md:text-4xl">PRINCÍPIOS</p>
