@@ -11,8 +11,6 @@ import modernidade from "./assets/principios/modernidade.svg";
 import condutaEtica from "./assets/principios/conduta-etica.svg";
 import profissionalismo from "./assets/principios/profissionalismo.svg";
 
-const servicos = ["Esquadria de PVC", "Esquadria de Aluminio"];
-
 const trabalhos = [
   {
     name: "Portas",
@@ -195,11 +193,11 @@ function App() {
                       onChange={(event) =>
                         setService(event.currentTarget.value)
                       }
-                      defaultValue={servicos[0]}
+                      defaultValue={trabalhos[0].name}
                     >
-                      {servicos.map((servico) => (
-                        <option key={servico} value={servico}>
-                          {servico}
+                      {trabalhos.map((trabalho) => (
+                        <option key={trabalho.name} value={trabalho.name}>
+                          {trabalho.name}
                         </option>
                       ))}
                     </select>
