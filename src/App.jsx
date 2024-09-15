@@ -14,50 +14,60 @@ import profissionalismo from "./assets/principios/profissionalismo.svg";
 const trabalhos = [
   {
     name: "Portas",
-    images: [
-      "/assets/trabalhos/portas/1.jpeg",
-      "/assets/trabalhos/portas/2.jpeg",
-      "/assets/trabalhos/portas/3.jpeg",
+    items: [
+      { type: "image", src: "/assets/trabalhos/portas/1.jpeg" },
+      { type: "image", src: "/assets/trabalhos/portas/2.jpeg" },
+      { type: "image", src: "/assets/trabalhos/portas/3.jpeg" },
+      { type: "image", src: "/assets/trabalhos/portas/4.jpeg" },
+      { type: "image", src: "/assets/trabalhos/portas/5.jpeg" },
     ],
   },
   {
     name: "Portões",
-    images: ["/assets/trabalhos/portoes/1.jpeg"],
+    items: [
+      { type: "image", src: "/assets/trabalhos/portoes/1.jpeg" },
+      { type: "image", src: "/assets/trabalhos/portoes/2.jpeg" },
+      { type: "image", src: "/assets/trabalhos/portoes/3.jpeg" },
+    ],
   },
   {
     name: "Ripados",
-    images: [
-      "/assets/trabalhos/ripados/1.jpeg",
-      "/assets/trabalhos/ripados/2.jpeg",
+    items: [
+      { type: "image", src: "/assets/trabalhos/ripados/1.jpeg" },
+      { type: "image", src: "/assets/trabalhos/ripados/2.jpeg" },
+      { type: "video", src: "/assets/trabalhos/ripados/1.mp4" },
     ],
   },
   {
     name: "Janelas",
-    images: [
-      "/assets/trabalhos/janelas/1.jpeg",
-      "/assets/trabalhos/janelas/2.jpeg",
-      "/assets/trabalhos/janelas/3.jpeg",
-      "/assets/trabalhos/janelas/4.jpeg",
+    items: [
+      { type: "image", src: "/assets/trabalhos/janelas/1.jpeg" },
+      { type: "image", src: "/assets/trabalhos/janelas/2.jpeg" },
+      { type: "image", src: "/assets/trabalhos/janelas/3.jpeg" },
+      { type: "image", src: "/assets/trabalhos/janelas/4.jpeg" },
     ],
   },
   {
     name: "Coberturas",
-    images: [
-      "/assets/trabalhos/coberturas/1.jpeg",
-      "/assets/trabalhos/coberturas/2.jpeg",
-      "/assets/trabalhos/coberturas/3.jpeg",
+    items: [
+      { type: "image", src: "/assets/trabalhos/coberturas/1.jpeg" },
+      { type: "image", src: "/assets/trabalhos/coberturas/2.jpeg" },
+      { type: "image", src: "/assets/trabalhos/coberturas/3.jpeg" },
+      { type: "image", src: "/assets/trabalhos/coberturas/4.jpeg" },
     ],
   },
   {
     name: "Fachadas em ACM",
-    images: [
-      "/assets/trabalhos/fachadas/1.jpeg",
-      "/assets/trabalhos/fachadas/2.jpeg",
+    items: [
+      { type: "image", src: "/assets/trabalhos/fachadas/1.jpeg" },
+      { type: "image", src: "/assets/trabalhos/fachadas/2.jpeg" },
+      { type: "image", src: "/assets/trabalhos/fachadas/3.jpeg" },
+      { type: "video", src: "/assets/trabalhos/fachadas/1.mp4" },
     ],
   },
   {
     name: "Telas",
-    images: ["/assets/trabalhos/telas/1.jpeg"],
+    items: [{ type: "image", src: "/assets/trabalhos/telas/1.jpeg" }],
   },
 ];
 
@@ -70,12 +80,12 @@ function App() {
   const numeroWhatsApp = "5512981886732";
   const mensagemBotaoWhatsapp =
     "Olá gostaria de saber mais sobre seus serviços!";
-  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = (images, index) => {
-    setSelectedImages(images);
+  const openModal = (items, index) => {
+    setSelectedItems(items);
     setCurrentIndex(index);
     setIsModalOpen(true);
   };
@@ -86,18 +96,17 @@ function App() {
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === selectedImages.length - 1 ? 0 : prevIndex + 1,
+      prevIndex === selectedItems.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? selectedImages.length - 1 : prevIndex - 1,
+      prevIndex === 0 ? selectedItems.length - 1 : prevIndex - 1,
     );
   };
 
   const handleBackgroundClick = (e) => {
-    // Fecha o modal se o clique for no fundo (overlay)
     if (e.target.id === "modal-background") {
       closeModal();
     }
@@ -124,19 +133,15 @@ function App() {
     <div className={`${openMenu ? "max-h-screen overflow-y-hidden" : ""}`}>
       <Header openMenu={openMenu} handleMenu={handleMenu} />
       <div className="overflow-x-hidden">
-        <main className="py-12">
-          <section className="px-4">
-            <div className="flex flex-col space-y-8 md:h-full md:flex-row md:px-4 lg:px-16 xl:px-64">
-              <div className="flex flex-1">
-                <img
-                  className="h-[42px] w-[310px] md:mt-40"
-                  src="/assets/marca-transparent.png"
-                  alt=""
-                />
-              </div>
+        <main className="pb-12">
+          <section className="px-4 py-28">
+            <div className="flex flex-col space-y-8 md:h-full md:flex-row md:px-4 lg:px-16">
+              <span className="flex-1 text-3xl font-bold text-[#09253b] md:mt-20 md:text-5xl lg:mt-24 lg:text-7xl">
+                Maestri Esquadrias
+              </span>
               <div className="flex flex-col gap-2 md:max-w-96 md:gap-4">
                 <span className="mt-4 text-[10px] leading-[12px] md:text-base">
-                  A Maestri esquadrias é uma empresa de esquadrias de alumínio
+                  A Maestri Esquadrias é uma empresa de esquadrias de alumínio
                   que visa a excelência em seus produtos, desde do design do
                   projeto até a entrega final ao cliente. Nosso objetivo é
                   garantir a satisfação de nossos clientes com os menores prazos
@@ -212,12 +217,12 @@ function App() {
               {trabalhos.map((trabalho, index) => (
                 <div
                   className="cursor-pointer"
-                  onClick={() => openModal(trabalho.images, 0)}
+                  onClick={() => openModal(trabalho.items, 0)}
                 >
                   <Trabalho
                     key={`${trabalho.name} - ${index + 1}`}
                     title={trabalho.name}
-                    src={trabalho.images[0]}
+                    src={trabalho.items[0].src}
                     alt={`Imagem do trabalho: ${trabalho.name}`}
                     left
                   />
@@ -353,15 +358,31 @@ function App() {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
             onClick={handleBackgroundClick}
           >
-            <div className="relative w-full max-w-2xl rounded-lg bg-white p-1">
+            <div className="relative w-full max-w-3xl rounded-lg bg-white p-1">
               <div className="relative">
-                <img
-                  src={selectedImages[currentIndex]}
-                  alt="carousel"
-                  className="h-[512px] w-full rounded-md object-cover"
-                />
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex justify-center gap-2">
-                  {selectedImages.map((_, index) => (
+                {/* Renderiza imagem ou vídeo baseado no tipo */}
+                {selectedItems[currentIndex].type === "image" ? (
+                  <img
+                    src={selectedItems[currentIndex].src}
+                    alt="carousel"
+                    className="h-[512px] w-full rounded-md object-contain md:h-[768px]"
+                  />
+                ) : (
+                  <video
+                    controls
+                    className="mb-4 h-[512px] w-full rounded-md object-contain md:h-[768px]"
+                  >
+                    <source
+                      src={selectedItems[currentIndex].src}
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                )}
+
+                {/* Indicador de Imagem/Video (bolinhas) */}
+                <div className="mb-4 flex justify-center gap-2">
+                  {selectedItems.map((_, index) => (
                     <span
                       key={index}
                       className={`h-3 w-3 rounded-full ${
@@ -370,7 +391,9 @@ function App() {
                     ></span>
                   ))}
                 </div>
-                {selectedImages.length > 1 && (
+
+                {/* Mostra as setas apenas se houver mais de um item */}
+                {selectedItems.length > 1 && (
                   <>
                     <button
                       onClick={goToPrevious}
