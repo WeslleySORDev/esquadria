@@ -11,37 +11,34 @@ import modernidade from "./assets/principios/modernidade.svg";
 import condutaEtica from "./assets/principios/conduta-etica.svg";
 import profissionalismo from "./assets/principios/profissionalismo.svg";
 
-import portas from "./assets/trabalhos/portas/1.jpeg";
-import portoes from "./assets/trabalhos/portas/1.jpeg";
-import ripados from "./assets/trabalhos/ripados/1.jpeg";
-import janelas from "./assets/trabalhos/portas/1.jpeg";
-import coberturas from "./assets/trabalhos/coberturas/1.jpeg";
-import fachadas from "./assets/trabalhos/fachadas/1.jpeg";
-
 const trabalhos = [
   {
     name: "Portas",
-    src: { portas },
+    src: "/assets/trabalhos/portas/1.jpeg",
   },
   {
     name: "Portões",
-    src: { portoes },
+    src: "/assets/trabalhos/portoes/1.jpeg",
   },
   {
     name: "Ripados",
-    src: { ripados },
+    src: "/assets/trabalhos/ripados/1.jpeg",
   },
   {
     name: "Janelas",
-    src: { janelas },
+    src: "/assets/trabalhos/janelas/1.jpeg",
   },
   {
     name: "Coberturas",
-    src: { coberturas },
+    src: "/assets/trabalhos/coberturas/1.jpeg",
   },
   {
     name: "Fachadas em ACM",
-    src: { fachadas },
+    src: "/assets/trabalhos/fachadas/1.jpeg",
+  },
+  {
+    name: "Telas",
+    src: "/assets/trabalhos/telas/1.jpeg",
   },
 ];
 
