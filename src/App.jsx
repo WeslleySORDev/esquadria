@@ -364,7 +364,7 @@ function App() {
                   <img
                     src={selectedItems[currentIndex].src}
                     alt="carousel"
-                    className="h-[512px] w-full rounded-md object-contain md:h-[768px]"
+                    className="mb-4 h-[512px] w-full rounded-md object-contain md:h-[768px]"
                   />
                 ) : (
                   <video
