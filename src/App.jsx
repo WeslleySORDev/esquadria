@@ -11,9 +11,6 @@ import modernidade from "./assets/principios/modernidade.svg";
 import condutaEtica from "./assets/principios/conduta-etica.svg";
 import profissionalismo from "./assets/principios/profissionalismo.svg";
 
-const phone = "5524998547770";
-const texto = "Olá gostaria de saber mais sobre seus serviços!";
-
 const servicos = ["Esquadria de PVC", "Esquadria de Aluminio"];
 
 const trabalhos = [
@@ -45,6 +42,9 @@ function App() {
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [openMenu, setOpenMenu] = useState(false);
+  const numeroWhatsApp = "5512981886732";
+  const mensagemBotaoWhatsapp =
+    "Olá gostaria de saber mais sobre seus serviços!";
   const handleMenu = (value) => {
     setOpenMenu(value);
   };
@@ -55,7 +55,13 @@ function App() {
       alert("Por favor, insira um e-mail válido.");
       return;
     }
-    console.log(service, name, email, telefone);
+    const mensagemForm = `Nome: ${name}\nEmail: ${email}\nTelefone: ${telefone}\nServiço: ${service}`;
+    const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemForm)}`;
+    window.open(url);
+    setService("");
+    setName("");
+    setEmail("");
+    setTelefone("");
   };
   return (
     <div className={`${openMenu ? "max-h-screen overflow-y-hidden" : ""}`}>
@@ -73,8 +79,8 @@ function App() {
                   que visa a excelência em seus produtos, desde do design do
                   projeto até a entrega final ao cliente. Nosso objetivo é
                   garantir a satisfação de nossos clientes com os menores prazos
-                  do mercado, mantendo nossa qualidade e seguindo as normas de
-                  qualidade para a execução de nossos serviços com excelência.
+                  do mercado, mantendo nossa qualidade e seguindo as normas
+                  técnicas para a execução de nossos serviços com excelência.
                 </span>
                 <span className="text-xs font-bold text-[#09253b] md:text-2xl">
                   Qualidade e Profissionalismo
@@ -96,7 +102,7 @@ function App() {
               </div>
             </div>
           </section>
-          <section id="principios" className="scroll-mt-28">
+          <section id="principios" className="scroll-mt-28 md:scroll-m-36">
             <div className="relative my-12 flex h-28 items-center justify-center py-16 text-[#c7c7c7] md:py-28">
               <h2>
                 <p className="text-xs md:text-base">Nossos</p>
@@ -137,7 +143,7 @@ function App() {
               />
             </div>
           </section>
-          <section id="nosso-trabalho" className="my-12 scroll-mt-28">
+          <section id="nosso-trabalho" className="my-12 scroll-mt-28 md:scroll-m-[148px]">
             <div className="relative flex flex-col items-center justify-center space-y-4 px-8 py-16 text-[#c7c7c7] md:py-28">
               <h2 className="text-2xl font-medium md:text-4xl">
                 Nosso Trabalho{" "}
@@ -150,6 +156,7 @@ function App() {
             <div className="mx-auto my-8 grid max-w-[calc(128px+(256*1px))] grid-cols-1 gap-8 sm:max-w-[calc(128px+(256*2px))] sm:grid-cols-2 md:max-w-[calc(128px+(256*3px))] md:grid-cols-3">
               {trabalhos.map((trabalho) => (
                 <Trabalho
+                  key={trabalho.name}
                   title={trabalho.name}
                   src={trabalho.src}
                   alt={`Imagem do trabalho: ${trabalho.name}`}
@@ -158,7 +165,7 @@ function App() {
               ))}
             </div>
           </section>
-          <section id="fale-conosco" className="translate-y-16 scroll-mt-28">
+          <section id="fale-conosco" className="translate-y-16 scroll-mt-28 md:scroll-m-32">
             <div className="relative flex flex-col space-y-4 px-8 py-16 text-[#c7c7c7] md:flex-row md:justify-around md:py-24">
               <div className="flex flex-col">
                 <p className="text-[10px] leading-[12px] md:text-base">
@@ -246,14 +253,15 @@ function App() {
               <span>Seg - Sex: 8h ás 17h</span>
             </div>
             <div className="flex flex-col items-center md:items-start">
-              <strong className="uppercase">Área de atentimento</strong>
-              <span>Fictício</span>
+              <strong className="uppercase">Área de atendimento</strong>
+              <span>Grande São Paulo e Litoral - SP</span>
             </div>
           </div>
           <div className="flex flex-col gap-2 md:justify-center">
             <div className="flex flex-col items-center md:items-start">
               <strong className="uppercase">Contato</strong>
-              <span>Telefone:(11)1 1111-1111</span>
+              <span>Telefone: (12) 98188-6732 / (12) 98277-1639</span>
+              <span>Email: maira.maestri@gmail.com</span>
             </div>
             <div className="flex flex-col items-center md:items-start">
               <span>Av. São Bernardo do Campo, 340 </span>
@@ -266,11 +274,11 @@ function App() {
               src="/assets/logo-transparent.png"
               alt=""
             />
-            <span className="text-xs">CNPJ: 37.245.464/0001-78</span>
+            <span className="text-xs">CNPJ: 51.359.986/0001-21</span>
           </div>
         </footer>
         <MobileMenu openMenu={openMenu} handleMenu={handleMenu} />
-        <WhatsAppWidget phone={phone} texto={texto} />
+        <WhatsAppWidget phone={numeroWhatsApp} texto={mensagemBotaoWhatsapp} />
       </div>
     </div>
   );
