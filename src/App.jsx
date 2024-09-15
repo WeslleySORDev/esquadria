@@ -162,7 +162,7 @@ function App() {
               </p>
               <div className="absolute -top-4 left-0 -z-10 h-full w-[120%] -translate-x-3 rotate-[4deg] bg-[#09253b] md:rotate-[2deg]"></div>
             </div>
-            <div className="mx-auto my-8 grid max-w-[calc(128px+(256*1px))] grid-cols-1 gap-8 sm:max-w-[calc(128px+(256*2px))] sm:grid-cols-2 md:max-w-[calc(128px+(256*3px))] md:grid-cols-3">
+            <div className="mx-auto my-8 grid max-w-[calc(128px+(256*1px))] grid-cols-1 gap-8 sm:max-w-[calc(128px+(256*2px))] sm:grid-cols-2 lg:max-w-[calc(128px+(256*3px))] lg:grid-cols-3">
               {trabalhos.map((trabalho) => (
                 <Trabalho
                   key={trabalho.name}
@@ -258,32 +258,37 @@ function App() {
             </div>
           </section>
         </main>
-        <footer className="flex flex-col gap-4 px-8 pb-16 pt-32 text-black md:flex-row-reverse md:justify-around">
-          <div className="flex flex-col gap-2 md:justify-center">
-            <div className="flex flex-col items-center md:items-start">
-              <strong className="uppercase">Horário de atendimento</strong>
-              <span>Seg - Sex: 8h ás 17h</span>
+        <footer className="flex flex-col">
+          <div className="flex flex-col gap-4 px-8 pb-16 pt-32 text-black md:flex-row-reverse md:justify-around">
+            <div className="flex flex-col gap-2 md:justify-center">
+              <div className="flex flex-col items-center md:items-start">
+                <strong className="uppercase">Horário de atendimento</strong>
+                <span>Seg - Sex: 8h ás 17h</span>
+              </div>
+              <div className="flex flex-col items-center md:items-start">
+                <strong className="uppercase">Área de atendimento</strong>
+                <span>Grande São Paulo e Litoral - SP</span>
+              </div>
             </div>
-            <div className="flex flex-col items-center md:items-start">
-              <strong className="uppercase">Área de atendimento</strong>
-              <span>Grande São Paulo e Litoral - SP</span>
+            <div className="flex flex-col gap-2 md:justify-center">
+              <div className="flex flex-col items-center md:items-start">
+                <strong className="uppercase">Contato</strong>
+                <span>Telefone: (12) 98188-6732 / (12) 98277-1639</span>
+                <span>Email: maira.maestri@gmail.com</span>
+              </div>
+            </div>
+            <div className="mt-12 flex flex-col items-center justify-center gap-1 py-6 md:mt-0 md:justify-start md:py-0">
+              <img
+                className="mx-auto w-48"
+                src="/assets/logo-transparent.png"
+                alt=""
+              />
+              <span className="text-xs">CNPJ: 51.359.986/0001-21</span>
             </div>
           </div>
-          <div className="flex flex-col gap-2 md:justify-center">
-            <div className="flex flex-col items-center md:items-start">
-              <strong className="uppercase">Contato</strong>
-              <span>Telefone: (12) 98188-6732 / (12) 98277-1639</span>
-              <span>Email: maira.maestri@gmail.com</span>
-            </div>
-          </div>
-          <div className="mt-12 flex flex-col items-center justify-center gap-1 py-6 md:mt-0 md:justify-start md:py-0">
-            <img
-              className="mx-auto w-48"
-              src="/assets/logo-transparent.png"
-              alt=""
-            />
-            <span className="text-xs">CNPJ: 51.359.986/0001-21</span>
-          </div>
+          <a className="text-[#09253b] py-2 mx-auto hover:underline" target="__blank" href="https://www.linkedin.com/in/weslleysordev/">
+            Desenvolvido por: WeslleySORDev
+          </a>
         </footer>
         <MobileMenu openMenu={openMenu} handleMenu={handleMenu} />
         <WhatsAppWidget phone={numeroWhatsApp} texto={mensagemBotaoWhatsapp} />
