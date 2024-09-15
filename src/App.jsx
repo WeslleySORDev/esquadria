@@ -11,6 +11,17 @@ import modernidade from "./assets/principios/modernidade.svg";
 import condutaEtica from "./assets/principios/conduta-etica.svg";
 import profissionalismo from "./assets/principios/profissionalismo.svg";
 
+const selectTrabalhos = [
+  "Portas",
+  "Portões",
+  "Ripados",
+  "Janelas",
+  "Coberturas",
+  "Fachadas em ACM",
+  "Telas",
+  "Outros",
+];
+
 const trabalhos = [
   {
     name: "Portas",
@@ -73,7 +84,7 @@ const trabalhos = [
 ];
 
 function App() {
-  const [service, setService] = useState("");
+  const [service, setService] = useState(selectTrabalhos[0]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -115,6 +126,10 @@ function App() {
   const handleMenu = (value) => {
     setOpenMenu(value);
   };
+  const handlePhoneChange = (event) => {
+    const value = event.currentTarget.value.replace(/[^0-9]/g, "");
+    setTelefone(value);
+  };
   const submitForm = (event) => {
     event.preventDefault();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -125,7 +140,7 @@ function App() {
     const mensagemForm = `Nome: ${name}\nEmail: ${email}\nTelefone: ${telefone}\nServiço: ${service}`;
     const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemForm)}`;
     window.open(url);
-    setService("");
+    setService(selectTrabalhos[0]);
     setName("");
     setEmail("");
     setTelefone("");
@@ -265,11 +280,11 @@ function App() {
                       onChange={(event) =>
                         setService(event.currentTarget.value)
                       }
-                      defaultValue={trabalhos[0].name}
+                      defaultValue={selectTrabalhos[0]}
                     >
-                      {trabalhos.map((trabalho) => (
-                        <option key={trabalho.name} value={trabalho.name}>
-                          {trabalho.name}
+                      {selectTrabalhos.map((trabalho) => (
+                        <option key={trabalho} value={trabalho}>
+                          {trabalho}
                         </option>
                       ))}
                     </select>
@@ -301,10 +316,8 @@ function App() {
                     <input
                       className="px-2 py-1 text-[#09253b] md:px-4 md:py-2"
                       value={telefone}
-                      onChange={(event) =>
-                        setTelefone(event.currentTarget.value)
-                      }
-                      type="text"
+                      onChange={handlePhoneChange}
+                      type="tel"
                       name="form-phone"
                     />
                   </div>
