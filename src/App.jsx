@@ -19,6 +19,10 @@ const trabalhos = [
     src: "/src/assets/trabalhos/portas/1.jpeg",
   },
   {
+    name: "Portões",
+    src: "/src/assets/trabalhos/portoes/1.jpeg",
+  },
+  {
     name: "Ripados",
     src: "/src/assets/trabalhos/ripados/1.jpeg",
   },
