@@ -360,7 +360,6 @@ function App() {
           >
             <div className="relative w-full max-w-3xl rounded-lg bg-white p-1">
               <div className="relative">
-                {/* Renderiza imagem ou vídeo baseado no tipo */}
                 {selectedItems[currentIndex].type === "image" ? (
                   <img
                     src={selectedItems[currentIndex].src}
@@ -380,7 +379,6 @@ function App() {
                   </video>
                 )}
 
-                {/* Indicador de Imagem/Video (bolinhas) */}
                 <div className="mb-4 flex justify-center gap-2">
                   {selectedItems.map((_, index) => (
                     <span
@@ -392,7 +390,6 @@ function App() {
                   ))}
                 </div>
 
-                {/* Mostra as setas apenas se houver mais de um item */}
                 {selectedItems.length > 1 && (
                   <>
                     <button
