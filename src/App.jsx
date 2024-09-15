@@ -137,11 +137,11 @@ function App() {
         <main className="pb-12">
           <section className="relative overflow-y-hidden px-4 py-28">
             <img
-              className="absolute inset-0 -z-10 sm:-top-[320px] lg:-top-[640px] opacity-50 blur-[1px]"
+              className="absolute inset-0 -z-10 opacity-50 blur-[1px] sm:-top-[320px] lg:-top-[640px]"
               src="/assets/background.jpeg"
               alt="Background"
             />
-            <div className="flex flex-col space-y-8 md:h-full md:flex-row md:px-4 lg:px-16]">
+            <div className="lg:px-16] flex flex-col space-y-8 md:h-full md:flex-row md:px-4">
               <span className="flex-1 text-3xl font-bold text-[#09253b] md:mt-20 md:text-5xl lg:mt-24 lg:text-7xl">
                 Maestri Esquadrias
               </span>
@@ -328,14 +328,16 @@ function App() {
                 <span>Seg - Sex: 8h ás 17h</span>
               </div>
               <div className="flex flex-col items-center md:items-start">
-                <strong className="uppercase">Área de atendimento</strong>
-                <span>Grande São Paulo e Litoral - SP</span>
+                <strong className="uppercase">Local </strong>
+                <span>São José dos Campos - SP</span>
               </div>
             </div>
             <div className="flex flex-col gap-2 md:justify-center">
               <div className="flex flex-col items-center md:items-start">
                 <strong className="uppercase">Contato</strong>
-                <span>Telefone: (12) 98188-6732 / (12) 98277-1639</span>
+                <span>Telefone</span>
+                <span>(12) 98188-6732</span>
+                <span>(12) 98277-1639</span>
                 <span>Email: contato@maestriesquadrias.com</span>
               </div>
             </div>
