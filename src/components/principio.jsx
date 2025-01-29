@@ -9,7 +9,7 @@ export function Principio({ src, alt, title, description }) {
         return (
           <p
             key={`${desc}+${index}`}
-            className="white text-start text-[10px] leading-[12px] md:text-sm lg:text-base"
+            className="white text-center text-[10px] leading-[12px] md:text-sm lg:text-base break-words"
           >
             {desc}
           </p>
