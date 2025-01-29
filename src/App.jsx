@@ -10,6 +10,9 @@ import solucoes from "./assets/principios/solucoes.svg";
 import modernidade from "./assets/principios/modernidade.svg";
 import condutaEtica from "./assets/principios/conduta-etica.svg";
 import profissionalismo from "./assets/principios/profissionalismo.svg";
+import missao from "./assets/principios/missao.svg";
+import valores from "./assets/principios/valores.svg";
+import visao from "./assets/principios/visao.svg";
 
 const selectTrabalhos = [
   "Portas",
@@ -188,36 +191,75 @@ function App() {
               </h2>
               <div className="absolute left-0 top-0 -z-10 h-full w-[120%] -translate-x-3 rotate-[4deg] bg-[#09253b] md:rotate-[2deg]"></div>
             </div>
-            <div className="my-8 flex flex-col gap-8 md:my-24 md:flex-row">
+            <div className="my-8 flex flex-col gap-8 md:my-24">
+              <Principio
+                src={missao}
+                alt="Missao SVG"
+                title="MISSÃO"
+                description={[
+                  "Proporcionar a máxima satisfação aos nossos clientes, oferecendo soluções inovadoras e eficientes com a melhor relação custo-benefício.",
+                  "Comprometidos com a excelência, buscamos sempre os menores prazos do mercado, sem abrir mão da qualidade, garantindo resultados que superem as expectativas de nossos parceiros.",
+                ]}
+              />
+              <Principio
+                src={visao}
+                alt="Visao SVG"
+                title="VISÃO"
+                description={[
+                  "Ser reconhecida como líder no segmento de esquadrias de alumínio, destacando-se pela excelência em qualidade e inovação.",
+                  "Nosso objetivo é garantir a satisfação de clientes, colaboradores e da sociedade, mantendo um compromisso constante com a conformidade às normas e legislações vigentes, e proporcionando soluções cada vez mais eficientes e sustentáveis.",
+                ]}
+              />
+              <Principio
+                src={valores}
+                alt="Valores SVG"
+                title="VALORES"
+                description={[
+                  "Valores guiados pela fé em Deus, nossa empresa adota a integridade e a ética como princípios fundamentais em todas as nossas ações.",
+                  "Buscamos incessantemente a excelência, oferecendo produtos e serviços que superam as expectativas dos nossos clientes.",
+                  "Valorizamos o respeito, a dignidade e o crescimento de cada pessoa, criando um ambiente de trabalho colaborativo e motivador.",
+                ]}
+              />
               <Principio
                 src={sustentabilidade}
                 alt="Sustentabilidade SVG"
                 title="SUSTENTABILIDADE"
-                description="Temos consciência ambiental, focamos na reciclagem para sermos uma empresa zero resíduo."
+                description={[
+                  "Temos consciência ambiental, focamos na reciclagem para sermos uma empresa zero resíduo.",
+                ]}
               />
               <Principio
                 src={solucoes}
                 alt="Soluções SVG"
                 title="SOLUÇÕES"
-                description="Propomos soluções ideais independente da complexidade com foco na satisfação de cliente. "
+                description={[
+                  "Propomos soluções ideais independente da complexidade com foco na satisfação de cliente.",
+                ]}
               />
               <Principio
                 src={modernidade}
                 alt="Modernidade SVG"
                 title="MODERNIDADE"
-                description="Estamos sempre atualizados com o que há de novo na indústria de esquadrias de alumínio, garantindo a melhor solução sempre com visual limpo e moderno."
+                description={[
+                  "Estamos sempre atualizados com o que há de novo na indústria de esquadrias de alumínio, garantindo a melhor solução sempre com visual limpo e moderno.",
+                ]}
               />
               <Principio
                 src={condutaEtica}
                 alt="Conduta Ética SVG"
                 title="CONDUTA ÉTICA"
-                description="Nossos profissionais seguem os valores e princípios da Maestri Esquadrias. Prezamos pela ética profissional, eficiência e qualidade dos serviços e produtos entregues, priorizando sempre a satisfacao dos nossos clientes "
+                description={[
+                  "Nossos profissionais seguem os valores e princípios da Maestri Esquadrias.",
+                  "Prezamos pela ética profissional, eficiência e qualidade dos serviços e produtos entregues, priorizando sempre a satisfacao dos nossos clientes ",
+                ]}
               />
               <Principio
                 src={profissionalismo}
                 alt="Profissionalismo SVG"
                 title="PROFISSIONALISMO"
-                description="Equipe altamente treinada, do mais alto gabarito e sempre atualizada."
+                description={[
+                  "Equipe altamente treinada, do mais alto gabarito e sempre atualizada.",
+                ]}
               />
             </div>
           </section>
