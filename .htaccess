@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^maestriesquadriasltda\.com [NC]
+RewriteRule ^(.*)$ https://www.maestriesquadriasltda.com/$1 [L,R=301]

@@ -1,6 +1,6 @@
 export function Principio({ src, alt, title, description }) {
   return (
-    <div className="mx-auto flex w-2/3 flex-col items-center md:max-w-[398px]">
+    <div className="mx-auto flex w-2/3 flex-col items-center md:max-w-[768px]">
       <img className="h-[35px] w-[35px]" src={src} alt={alt} />
       <span className="text-center text-xs font-semibold my-2 md:text-base lg:text-lg">
         {title}
@@ -9,7 +9,7 @@ export function Principio({ src, alt, title, description }) {
         return (
           <p
             key={`${desc}+${index}`}
-            className="white text-center text-[10px] leading-[12px] md:text-sm lg:text-base break-words"
+            className="white text-center text-[10px] leading-[12px] md:text-sm lg:text-base"
           >
             {desc}
           </p>
